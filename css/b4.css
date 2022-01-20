@@ -1,0 +1,397 @@
+/******************************/
+
+@import url("https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap");
+:root {
+    --date: "Vujahday Script", cursive;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+}
+
+body {
+    overflow-y: hidden;
+}
+
+.cover {
+  position: relative;
+}
+.cover svg {
+ 	position: absolute;
+	top: 50%;
+	left: 50%;
+	stroke: #fff;
+	width: 90px;
+	height: 90px;
+	background-color: #5967D8;
+	border-radius: 100%;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+	z-index: 0;
+}
+.play {
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 3;
+	width: 90px;
+	background: transparent !important;
+	height: 90px;
+	cursor: pointer;
+	transform: translate(-50%, -50%);
+}
+.play::before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: 5px solid rgba(255, 255, 255, 0.3);
+	border-radius: 100%;
+	opacity: 0;
+}
+.play::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAZdJREFUeNrs29FNQjEYBlAgDuAIuAFugBvgBrABTiBOgE4AGzgCbCAbwAayAbZJb0KMT77wt/ecpO/39qP9CqGDAQAAAAAAAAAAAAAA8A+Xy2WWxr2ZiBPILo1jGlOzESeQzmcaY7MSJ5DsO42lmYkTSOcrjYkZihNIZ630YwVyKaU/M1txAunsWir9UQPvkI/GuVtWPsoxVsjv0p9aIXHkE9iu5tIfNbrI8neWXPpzgcSRV8imttJvOZDr0j/WUvp9CKTzWsMPln0KJBuX0t9ELf2+BdKZl21sKZBYpb8upT8RSMBv+hG2MYFclX4JZioQBPKHtzQeh8Ph/pYPcSeHQQ7gJQVxsEJu61yCeIoSRp9XyLaEcY72YH0L5JTG4tY9YcsqpZ2CeIgcRl9WyL6sipNj7+1Le1FK+1TLQ7cayHsaeXva1vbgrW1Zh3J62tf6Aq0EkrenjxTEqvYXaSGQqkq75Q7JATzXVtpV8mfregJxHSFIIC7sBArElbYggbj0GSgQ16IBAAAAAAAAAAAAACCsHwEGACfr+SLf7BaJAAAAAElFTkSuQmCC');
+	background-size: 80%;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+#circle {
+	visibility: hidden;
+	stroke-width: 5;
+}
+.playing #circle {
+	visibility: visible;
+}
+.playing .play::after {
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAK9JREFUeNrs0sEJhDAQQFEjW4ilWYp2slYS7MROYgrQZQc8DPgeiBcZQ/4MAwAAAAAAAAAAAAAAZFcyHaa1NvfX9PfhS1lu5iyB3x59ztcqXF9kbQE/5kTUTHcwWoNcBBEEQQRBEEEQRBAEEQRBEEQQBBEEQQRBEEEQBEEEQRBBEEQQBBEEQRBEEAQRBEEEQZB3+iQ7z9af/YE5a+DbwxoAAAAAAAAAAAAAAEDEKcAA4xprM8PkP94AAAAASUVORK5CYII=');
+}
+.playing .play::before {
+	opacity: 1;
+}
+
+/* ---
+----
+---- */
+
+
+
+
+body {
+    font: normal 16px/1.5 "Helvetica Neue", sans-serif;
+    background: url('../assets/img/bg-img.png');
+    background-size: cover;
+    color: #fff;
+    overflow-x: hidden;
+    padding-bottom: 50px;
+}
+
+
+/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline ul {
+    padding-bottom:  50px;
+}
+
+.timeline ul li {
+    list-style-type: none;
+    position: relative;
+    width: 6px;
+    margin: 0 auto;
+    padding-top: 50px;
+    background: rgb(172,165,134);
+    background: linear-gradient(275deg, rgba(172,165,134,0.6474964985994398) 0%, rgba(191,191,191,0.6895133053221288) 100%);
+
+}
+
+.timeline ul li::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: inherit;
+    z-index: 1;
+}
+
+.timeline ul li div {
+    position: relative;
+    bottom: 0;
+    width: 400px;
+}
+
+.timeline ul li div::before {
+    content: "";
+    position: absolute;
+    bottom: 7px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.timeline ul li:nth-child(odd) div {
+    left: 45px;
+}
+
+.timeline ul li:nth-child(odd) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent #fff transparent transparent;
+}
+
+.timeline ul li:nth-child(even) div {
+    left: -439px;
+}
+
+.timeline ul li:nth-child(even) div::before {
+    right: -15px;
+    border-width: 8px 0 8px 16px;
+    border-color: transparent transparent transparent #fff;
+}
+
+time {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* EFFECTS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.timeline {
+    opacity: 0;
+
+}
+
+.timeline-show {
+   opacity: 1;
+}
+
+
+
+.timeline ul li::after {
+    transition: background 0.5s ease-in-out;
+}
+
+.timeline ul li.in-view::after {
+    background: rgb(172,165,134);
+    background: radial-gradient(circle, rgba(172,165,134,0.8071603641456583) 0%, rgba(191,191,191,0.7679446778711485) 100%);
+
+}
+
+.timeline ul li div {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.timeline ul li:nth-child(odd) div {
+    transform: translate3d(200px, 0, 0);
+}
+
+.timeline ul li:nth-child(even) div {
+    transform: translate3d(-200px, 0, 0);
+}
+
+.timeline ul li.in-view div {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@media screen and (max-width: 900px) {
+    .timeline ul li:nth-child(even) div {
+        left: -289px;
+        /*250+45-6*/
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .timeline ul li {
+        margin-left: 20px;
+    }
+    .timeline ul li div {
+        width: calc(100vw - 91px);
+    }
+    .timeline ul li:nth-child(even) div {
+        left: 45px;
+    }
+    .timeline ul li:nth-child(even) div::before {
+        left: -15px;
+        border-width: 8px 16px 8px 0;
+        border-color: transparent #fff transparent transparent;
+    }
+}
+
+/* EXTRA/CLIP PATH STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.timeline-clippy ul li::after {
+    width: 40px;
+    height: 40px;
+    border-radius: 0;
+}
+
+.timeline-rhombus ul li::after {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.timeline-rhombus ul li div::before {
+    bottom: 12px;
+}
+
+.timeline-star ul li::after {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.timeline-heptagon ul li::after {
+    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+}
+
+.timeline-infinite ul li::after {
+    animation: scaleAnimation 2s infinite;
+}
+
+@keyframes scaleAnimation {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.25);
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* ––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.music {
+    height: 60px;
+    margin-top: 70px;
+}
+@media screen and (min-width: 900px) {
+    .music {
+        height: 60px;
+    }
+}
+.tunel-title {
+    font-family: var(--date);
+    margin-top: 20px;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+@media screen and (min-width: 900px) {
+    .tunel-title {
+        margin-bottom: 20px;
+        font-size: 5rem;
+        letter-spacing: 5px;
+        margin-top: 50px;
+    }
+}
+
+
+
+.card {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+.card > figure {
+    position: relative;
+    margin-bottom: 7px;
+}
+.card figure > img {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.card > span {
+    color: #000;
+    font-family: var(--date);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.tunel-giris-text {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    padding: 5px 10px;
+    text-align: center;
+    color: #5967D8;
+}
+
+
+
+.sf-snow-flake {
+    position: absolute;
+    top: -20px;
+    z-index: 99999;
+    }
+    
+.sf-snow-anim {
+    top: 15750px;
+}
+
+
+    
+
+
+.sonLink{
+    text-decoration: none;
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    background: transparent;
+    color: white;
+    font-size: 40px;
+    margin-top: 30px;
+    transition: 250ms all ease-in-out;
+}
+.sonLink:hover {
+    color: crimson;
+}
+
+.date {
+    display: flex;
+    align-items: center;justify-content: center;
+}
+.date > span {
+    font-size: 40px;
+}
