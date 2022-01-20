@@ -12,7 +12,7 @@ $( ".password" ).on( "keydown", function(event) {
   });
 
   function goNextPage(){
-    if($('.password').val() === 'bolu'){
+    if($('.password').val() === 'bolu' || $('.password').val() === 'Bolu' || $('.password').val() === 'BOLU'){
         window.location.href='../b2.html';
     }
     else {
